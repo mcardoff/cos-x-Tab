@@ -161,7 +161,7 @@ class Cos_X_Calculator: ObservableObject {
         }
         // Calculate the infinite sum using the function that calculates the multiplier of the nth term in the series.
         
-        cosXminusOne = calculate1DInfiniteSum(function: cosnthTermMultiplier, x: x, minimum: 1, maximum: 100, firstTerm: firstTerm, isPlotError: plotError, errorType: cosErrorCalculator  )
+        cosXminusOne = calculate1DInfiniteSum(function: cosnthTermMultiplier, x: x, offset: 1.0, minimum: 1, maximum: 100, firstTerm: firstTerm, isPlotError: plotError, errorType: cosErrorCalculator  )
         
         return (cosXminusOne)
     }
@@ -176,7 +176,7 @@ class Cos_X_Calculator: ObservableObject {
     ///   - isPlotError: boolean that describes whether to plot the value of the sum or the error with respect to a known value
     ///   - errorType: function used to calculate the log of the error when the exact value is known
     /// - Returns: the value of the infite sum 
-    func calculate1DInfiniteSum(function: nthTermMultiplierHandler, x: Double, minimum: Int, maximum: Int, firstTerm: Double, isPlotError: Bool, errorType: ErrorHandler ) -> Double {
+    func calculate1DInfiniteSum(function: nthTermMultiplierHandler, x: Double, offset: Double, minimum: Int, maximum: Int, firstTerm: Double, isPlotError: Bool, errorType: ErrorHandler ) -> Double {
         
         
         var plotData :[plotDataType] =  []
@@ -192,7 +192,7 @@ class Cos_X_Calculator: ObservableObject {
         let errorParameters: [ErrorParameterTuple] = [(n: minimum, x: x, sum: previousTerm)]
         let error = errorType(errorParameters)
         
-        plotDataModel!.calculatedText.append("\(minimum), \t\(previousTerm + 1.0), \t\(error)\n")
+        plotDataModel!.calculatedText.append("\(minimum), \t\(previousTerm + offset), \t\(error)\n")
         
         
         if isPlotError {
@@ -208,7 +208,7 @@ class Cos_X_Calculator: ObservableObject {
             let dataPoint: plotDataType = [.X: Double(minimum), .Y: (previousTerm)]
             plotData.append(contentsOf: [dataPoint])
             
-            print("n is \(minimum), x is \(x), currentTerm = \(previousTerm + 1.0)")
+            print("n is \(minimum), x is \(x), currentTerm = \(previousTerm + offset)")
             
         }
         
@@ -230,7 +230,7 @@ class Cos_X_Calculator: ObservableObject {
             let errorParameters: [ErrorParameterTuple] = [(n: n, x: x, sum: sum)]
             let error = errorType(errorParameters)
             
-            plotDataModel!.calculatedText.append("\(n), \t\(sum + 1.0), \t\(error)\n")
+            plotDataModel!.calculatedText.append("\(n), \t\(sum + offset), \t\(error)\n")
             
             print("The current ulp of sum is \(sum.ulp)")
             
@@ -238,7 +238,7 @@ class Cos_X_Calculator: ObservableObject {
             
             if !isPlotError{
                 
-                let dataPoint: plotDataType = [.X: Double(n), .Y: (sum + 1.0)]
+                let dataPoint: plotDataType = [.X: Double(n), .Y: (sum + offset)]
                 plotData.append(contentsOf: [dataPoint])
             }
             else{

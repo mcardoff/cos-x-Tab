@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 import CorePlot
 
-
+// already done in cosine calculator
+/*
 typealias nthTermParameterTuple = (n: Int, x: Double)
 typealias nthTermMultiplierHandler = (_ parameters: [nthTermParameterTuple]) -> Double
 typealias ErrorHandler = (_ parameters: [ErrorParameterTuple]) -> Double
 typealias ErrorParameterTuple = (n: Int, x: Double, sum: Double)
-
+*/
 class Sin_X_Calculator: ObservableObject {
     
     var plotDataModel: PlotDataClass? = nil
@@ -33,71 +34,77 @@ class Sin_X_Calculator: ObservableObject {
     ///                  /__               (2n-1)!
     ///                  n = 1
     ///
-    func calculate_sin_x(x: Double) -> Double{
-        
-        var sinXminusOne = 0.0
-        var xInRange = x
-        var sinX = 0.0
-        
-        if (xInRange > Double.pi) {
-        
-            repeat {
-                      xInRange -= 2.0*Double.pi
-            } while xInRange > Double.pi
-        
-        }
-        else if (xInRange < -Double.pi){
-        
-            repeat {
-                      xInRange += 2.0*Double.pi
-            } while xInRange < -Double.pi
-        
-        }
-        
-        
-        sinXminusOne = calculate_cos_xMinus1(x: xInRange)
-        
-        sinX = sinXminusOne + 1.0
-        print(sinX)
-        
-        return (sinX)
-    }
+//    func calculate_sin_x(x: Double) -> Double{
+//
+//        var sinXminusOne = 0.0
+//        var xInRange = x
+//        var sinX = 0.0
+//
+//        if (xInRange > Double.pi) {
+//
+//            repeat {
+//                      xInRange -= 2.0*Double.pi
+//            } while xInRange > Double.pi
+//
+//        }
+//        else if (xInRange < -Double.pi){
+//
+//            repeat {
+//                      xInRange += 2.0*Double.pi
+//            } while xInRange < -Double.pi
+//
+//        }
+//
+//
+//        sinXminusOne = calculate_cos_xMinus1(x: xInRange)
+//
+//        sinX = sinXminusOne + 1.0
+//        print(sinX)
+//
+//        return (sinX)
+//    }
     
     /// calculate_cos_xMinus1
     /// - Parameter x: values of x in cos(x)
     /// - Returns: cos(x) - 1
     /// This function calculates the Taylor Series Expansion of cos(x) - 1
     ///
-    //                      oo                   2n
-    //                      __             n    x
-    //    cos (x) - 1   =   \        ( - 1)   ------
-    //                      /__               (2n)!
-    //                     n = 1
+    //                oo                      2n-1
+    //                __             n-1     x
+    //    sin (x) =   \        ( - 1)     --------
+    //                /__                  (2n-1)!
+    //               n = 1
     ///
-    func calculate_cos_xMinus1(x: Double) -> Double{
+    func calculate_sin_x(x: Double) -> Double{
         
-        var cosXminusOne = 0.0
-        let firstTerm = -1.0/2.0 * (x↑2.0)
-        let zerothTerm = 1.0
+        var sinX = 0.0
+        var zerothTerm = 0.0
         var zerothError = 0.0
-        let actualcos_x = cos(x)
+        var firstTerm = x
+        let actualsin_x = sin(x)
+        
+        // readjust zeroth term
+        if (firstTerm > Double.pi) {
+            repeat { firstTerm -= 2.0*Double.pi } while firstTerm > Double.pi
+        } else if (firstTerm < -Double.pi){
+            repeat { firstTerm += 2.0*Double.pi } while firstTerm < -Double.pi
+        }
         
         //Print Header
-        plotDataModel!.calculatedText = "x = \(x), \tcox(x) = \(actualcos_x)\n"
-        plotDataModel!.calculatedText += "Point, \tcos(x), \tError\n"
+        plotDataModel!.calculatedText = "x = \(x), \tsix(x) = \(actualsin_x)\n"
+        plotDataModel!.calculatedText += "Point, \tsin(x), \tError\n"
         
         //Calculate Error of Zeroth Point
-        
-        if(actualcos_x != 0.0){
-            var numerator = 1.0 - actualcos_x
+        if(actualsin_x != 0.0){
+            var numerator = firstTerm - actualsin_x
             if(numerator == 0.0) { numerator = 1.0E-16 }
-            zerothError = (log10(abs((numerator)/actualcos_x)))
+            zerothError = (log10(abs((numerator)/actualsin_x)))
             
         } else {
             zerothError = 0.0
         }
         
-        //Print Zereoth Poin
+        //Print Zeroth Point
         plotDataModel!.calculatedText += "0.0, \t\(zerothTerm), \t\(zerothError)\n"
         plotDataModel!.zeroData()
         
@@ -108,12 +115,12 @@ class Sin_X_Calculator: ObservableObject {
             plotDataModel!.changingPlotParameters.xMax = 15.0
             plotDataModel!.changingPlotParameters.xMin = -1.0
             plotDataModel!.changingPlotParameters.xLabel = "n"
-            plotDataModel!.changingPlotParameters.yLabel = "cos(x)"
+            plotDataModel!.changingPlotParameters.yLabel = "sin(x)"
             plotDataModel!.changingPlotParameters.lineColor = .red()
-            plotDataModel!.changingPlotParameters.title = "cos(x) vs n"
+            plotDataModel!.changingPlotParameters.title = "sin(x) vs n"
             
-            // Plot first point of cos
-            let dataPoint: plotDataType = [.X: 0.0, .Y: (1.0)]
+            // Plot first point of sin
+            let dataPoint: plotDataType = [.X: 0.0, .Y: 0.0]
             plotDataModel!.appendData(dataPoint: [dataPoint])
         } else {
             //set the Plot Parameters
@@ -124,7 +131,7 @@ class Sin_X_Calculator: ObservableObject {
             plotDataModel!.changingPlotParameters.xLabel = "n"
             plotDataModel!.changingPlotParameters.yLabel = "Abs(log(Error))"
             plotDataModel!.changingPlotParameters.lineColor = .red()
-            plotDataModel!.changingPlotParameters.title = "Error cos(x) vs n"
+            plotDataModel!.changingPlotParameters.title = "Error sin(x) vs n"
                 
             
             // Plot first point of error
@@ -133,9 +140,13 @@ class Sin_X_Calculator: ObservableObject {
         }
         // Calculate the infinite sum using the function that calculates the multiplier of the nth term in the series.
         
-        cosXminusOne = calculate1DInfiniteSum(function: cosnthTermMultiplier, x: x, minimum: 1, maximum: 100, firstTerm: firstTerm, isPlotError: plotError, errorType: cosErrorCalculator  )
+        sinX = calculate1DInfiniteSum(
+            function: sinnthTermMultiplier,
+            x: x, offset: zerothTerm, minimum: 1, maximum: 100,
+            firstTerm: firstTerm, isPlotError: plotError,
+            errorType: sinErrorCalculator  )
         
-        return (cosXminusOne)
+        return (sinX)
     }
     
     /// calculate1DInfiniteSum
@@ -148,43 +159,33 @@ class Sin_X_Calculator: ObservableObject {
     ///   - isPlotError: boolean that describes whether to plot the value of the sum or the error with respect to a known value
     ///   - errorType: function used to calculate the log of the error when the exact value is known
     /// - Returns: the value of the infite sum
-    func calculate1DInfiniteSum(function: nthTermMultiplierHandler, x: Double, minimum: Int, maximum: Int, firstTerm: Double, isPlotError: Bool, errorType: ErrorHandler ) -> Double {
-        
+    func calculate1DInfiniteSum(function: nthTermMultiplierHandler, x: Double, offset: Double, minimum: Int, maximum: Int, firstTerm: Double, isPlotError: Bool, errorType: ErrorHandler) -> Double {
         
         var plotData :[plotDataType] =  []
-
         var sum = 0.0
         var previousTerm = firstTerm
         var currentTerm = 0.0
         let lowerIndex = minimum + 1
-        
         
         //Deal with the First Point in the Infinite Sum
         
         let errorParameters: [ErrorParameterTuple] = [(n: minimum, x: x, sum: previousTerm)]
         let error = errorType(errorParameters)
         
-        plotDataModel!.calculatedText.append("\(minimum), \t\(previousTerm + 1.0), \t\(error)\n")
-        
+        plotDataModel!.calculatedText.append("\(minimum), \t\(previousTerm + offset), \t\(error)\n")
         
         if isPlotError {
-            
-            
             let dataPoint: plotDataType = [.X: Double(1), .Y: (error)]
             plotData.append(contentsOf: [dataPoint])
-            
-            
         }
         else{
             
             let dataPoint: plotDataType = [.X: Double(minimum), .Y: (previousTerm)]
             plotData.append(contentsOf: [dataPoint])
             
-            print("n is \(minimum), x is \(x), currentTerm = \(previousTerm + 1.0)")
+            print("n is \(minimum), x is \(x), currentTerm = \(previousTerm + offset)")
             
         }
-        
-        
         
         sum += firstTerm
 
@@ -202,15 +203,14 @@ class Sin_X_Calculator: ObservableObject {
             let errorParameters: [ErrorParameterTuple] = [(n: n, x: x, sum: sum)]
             let error = errorType(errorParameters)
             
-            plotDataModel!.calculatedText.append("\(n), \t\(sum + 1.0), \t\(error)\n")
+            plotDataModel!.calculatedText.append("\(n), \t\(sum + offset), \t\(error)\n")
             
             print("The current ulp of sum is \(sum.ulp)")
             
             previousTerm = currentTerm
             
             if !isPlotError{
-                
-                let dataPoint: plotDataType = [.X: Double(n), .Y: (sum + 1.0)]
+                let dataPoint: plotDataType = [.X: Double(n), .Y: (sum + offset)]
                 plotData.append(contentsOf: [dataPoint])
             }
             else{
@@ -227,15 +227,9 @@ class Sin_X_Calculator: ObservableObject {
                 
                 break
             }
-        
-        
-        
     }
-
         plotDataModel!.appendData(dataPoint: plotData)
         return sum
-
-
     }
     
     /// sinnthTermMultiplier
@@ -278,11 +272,7 @@ class Sin_X_Calculator: ObservableObject {
             if(numerator == 0.0) {numerator = sum.ulp}
             
             error = (log10(abs((numerator)/actualsin_x)))
-            
-            
-        } else {
-            error = 0.0
-        }
+        } else { error = 0.0 }
         
         return (error)
         

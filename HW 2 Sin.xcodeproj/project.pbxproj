@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C36D43227AC75F60090028B /* sin_X_Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43127AC75F60090028B /* sin_X_Calculator.swift */; };
+		2C36D43327AC7E0E0090028B /* sin_X_Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43127AC75F60090028B /* sin_X_Calculator.swift */; };
 		D2947E6C25BD25E900E60142 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E6B25BD25E900E60142 /* Tests_iOS.swift */; };
 		D2947E7725BD25E900E60142 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E7625BD25E900E60142 /* Tests_macOS.swift */; };
 		D2947E7925BD25E900E60142 /* cos_x__TabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E5025BD25E900E60142 /* cos_x__TabApp.swift */; };
@@ -427,6 +428,7 @@
 				D2947EB825BD29EC00E60142 /* CalculatePlotData.swift in Sources */,
 				D2947EC025BD29EC00E60142 /* ChangingPlotParameters.swift in Sources */,
 				D2947EB025BD29EC00E60142 /* cos_X_Calculator.swift in Sources */,
+				2C36D43327AC7E0E0090028B /* sin_X_Calculator.swift in Sources */,
 				D2947F0125BD2C8900E60142 /* TextExportDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
