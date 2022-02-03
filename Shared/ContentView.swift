@@ -66,8 +66,6 @@ struct ContentView: View {
                         Text("Display Error")
                     }
                     .padding()
-                    
-
             }
             
             HStack{
@@ -105,7 +103,6 @@ struct ContentView: View {
                             .padding()
                     }
                 }
-                
             }
             
             

@@ -9,45 +9,7 @@ import Foundation
 import SwiftUI
 import CorePlot
 
-//                  oo                  2n
-//                  __            n    x
-//    cos (x)  =   \        ( - 1)   ------
-//                 /__               (2n)!
-//                 n = 0
-
-
-
-//                      oo                   2n
-//                      __             n    x
-//    cos (x) - 1   =   \        ( - 1)   ------
-//                      /__               (2n)!
-//                     n = 1
-
-//                  oo                  2n
-//                  __            n    x
-//    cos (x)  =   \        ( - 1)   ------
-//                 /__               (2n)!
-//                 n = 0
-
-
-//                               2
-//      th                     x                     th
-//    n   term  =    ( - 1)  ---------    *   (n - 1)    term
-//                           2n * (2n-1)
-//
-
-
-typealias nthTermParameterTuple = (n: Int, x: Double)
-typealias nthTermMultiplierHandler = (_ parameters: [nthTermParameterTuple]) -> Double
-typealias ErrorHandler = (_ parameters: [ErrorParameterTuple]) -> Double
-typealias ErrorParameterTuple = (n: Int, x: Double, sum: Double)
-
-class Cos_X_Calculator: ObservableObject {
-    
-    var plotDataModel: PlotDataClass? = nil
-    var plotError: Bool = false
-    
-    
+class Cos_X_Calculator: Calculator {
     
     /// calculate_cos_x
     /// - Parameter x: values of x in cos(x)
@@ -64,24 +26,8 @@ class Cos_X_Calculator: ObservableObject {
     func calculate_cos_x(x: Double) -> Double{
         
         var cosXminusOne = 0.0
-        var xInRange = x
+        var xInRange = clipToRange(x: x)
         var cosX = 0.0
-        
-        if (xInRange > Double.pi) {
-        
-            repeat {
-                      xInRange -= 2.0*Double.pi
-            } while xInRange > Double.pi
-        
-        }
-        else if (xInRange < -Double.pi){
-        
-            repeat {
-                      xInRange += 2.0*Double.pi
-            } while xInRange < -Double.pi
-        
-        }
-        
         
         cosXminusOne = calculate_cos_xMinus1(x: xInRange)
         
@@ -164,106 +110,6 @@ class Cos_X_Calculator: ObservableObject {
         cosXminusOne = calculate1DInfiniteSum(function: cosnthTermMultiplier, x: x, offset: 1.0, minimum: 1, maximum: 100, firstTerm: firstTerm, isPlotError: plotError, errorType: cosErrorCalculator  )
         
         return (cosXminusOne)
-    }
-    
-    /// calculate1DInfiniteSum
-    /// - Parameters:
-    ///   - function: function describing the nth term multiplier in the expansion
-    ///   - x: value to be calculated
-    ///   - minimum: minimum term in the sum usually 0 or 1
-    ///   - maximum: maximum value of n in the expansion. Basically prevents an infinite loop
-    ///   - firstTerm: First term in the expansion usually the value of the sum at the minimum
-    ///   - isPlotError: boolean that describes whether to plot the value of the sum or the error with respect to a known value
-    ///   - errorType: function used to calculate the log of the error when the exact value is known
-    /// - Returns: the value of the infite sum 
-    func calculate1DInfiniteSum(function: nthTermMultiplierHandler, x: Double, offset: Double, minimum: Int, maximum: Int, firstTerm: Double, isPlotError: Bool, errorType: ErrorHandler ) -> Double {
-        
-        
-        var plotData :[plotDataType] =  []
-
-        var sum = 0.0
-        var previousTerm = firstTerm
-        var currentTerm = 0.0
-        let lowerIndex = minimum + 1
-        
-        
-        //Deal with the First Point in the Infinite Sum
-        
-        let errorParameters: [ErrorParameterTuple] = [(n: minimum, x: x, sum: previousTerm)]
-        let error = errorType(errorParameters)
-        
-        plotDataModel!.calculatedText.append("\(minimum), \t\(previousTerm + offset), \t\(error)\n")
-        
-        
-        if isPlotError {
-            
-            
-            let dataPoint: plotDataType = [.X: Double(1), .Y: (error)]
-            plotData.append(contentsOf: [dataPoint])
-            
-            
-        }
-        else{
-            
-            let dataPoint: plotDataType = [.X: Double(minimum), .Y: (previousTerm)]
-            plotData.append(contentsOf: [dataPoint])
-            
-            print("n is \(minimum), x is \(x), currentTerm = \(previousTerm + offset)")
-            
-        }
-        
-        
-        
-        sum += firstTerm
-
-        for n in lowerIndex...maximum {
-        
-            let parameters: [nthTermParameterTuple] = [(n: n, x: x)]
-            
-            // Calculate the infinite sum using the function that calculates the multiplier of the nth them in the series from the (n-1)th term.
-        
-            currentTerm = function(parameters) * previousTerm
-            
-            print("n is \(n), x is \(x), currentTerm = \(currentTerm)")
-            sum += currentTerm
-            
-            let errorParameters: [ErrorParameterTuple] = [(n: n, x: x, sum: sum)]
-            let error = errorType(errorParameters)
-            
-            plotDataModel!.calculatedText.append("\(n), \t\(sum + offset), \t\(error)\n")
-            
-            print("The current ulp of sum is \(sum.ulp)")
-            
-            previousTerm = currentTerm
-            
-            if !isPlotError{
-                
-                let dataPoint: plotDataType = [.X: Double(n), .Y: (sum + offset)]
-                plotData.append(contentsOf: [dataPoint])
-            }
-            else{
-                
-                
-                let dataPoint: plotDataType = [.X: Double(n), .Y: (error)]
-                plotData.append(contentsOf: [dataPoint])
-                
-            }
-            
-            // Stop the summation when the current term is within machine precision of the total sum.
-            
-            if (abs(currentTerm) < sum.ulp){
-                
-                break
-            }
-        
-        
-        
-    }
-
-        plotDataModel!.appendData(dataPoint: plotData)
-        return sum
-
-
     }
     
     /// cosnthTermMultiplier

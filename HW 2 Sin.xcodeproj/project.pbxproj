@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2C36D43227AC75F60090028B /* sin_X_Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43127AC75F60090028B /* sin_X_Calculator.swift */; };
 		2C36D43327AC7E0E0090028B /* sin_X_Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43127AC75F60090028B /* sin_X_Calculator.swift */; };
+		2C36D43527AC8ABF0090028B /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43427AC8ABF0090028B /* Calculator.swift */; };
+		2C36D43627AC8ABF0090028B /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43427AC8ABF0090028B /* Calculator.swift */; };
+		2C36D43727AC8E1C0090028B /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43427AC8ABF0090028B /* Calculator.swift */; };
+		2C36D43827AC8E1D0090028B /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43427AC8ABF0090028B /* Calculator.swift */; };
+		2C36D43927AC8E630090028B /* sin_X_Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43127AC75F60090028B /* sin_X_Calculator.swift */; };
 		D2947E6C25BD25E900E60142 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E6B25BD25E900E60142 /* Tests_iOS.swift */; };
 		D2947E7725BD25E900E60142 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E7625BD25E900E60142 /* Tests_macOS.swift */; };
 		D2947E7925BD25E900E60142 /* cos_x__TabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E5025BD25E900E60142 /* cos_x__TabApp.swift */; };
@@ -76,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		2C36D43127AC75F60090028B /* sin_X_Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sin_X_Calculator.swift; sourceTree = "<group>"; };
+		2C36D43427AC8ABF0090028B /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		D2947E5025BD25E900E60142 /* cos_x__TabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cos_x__TabApp.swift; sourceTree = "<group>"; };
 		D2947E5125BD25E900E60142 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2947E5225BD25E900E60142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 				D2947EAA25BD29EC00E60142 /* CorePlot.swift */,
 				D2947EA725BD29EC00E60142 /* cos_X_Calculator.swift */,
 				2C36D43127AC75F60090028B /* sin_X_Calculator.swift */,
+				2C36D43427AC8ABF0090028B /* Calculator.swift */,
 				D2947EA825BD29EC00E60142 /* operators.swift */,
 				D2947EAE25BD29EC00E60142 /* PlotDataClass.swift */,
 				D2947EAC25BD29EC00E60142 /* TextView.swift */,
@@ -406,6 +413,7 @@
 				D2947EB325BD29EC00E60142 /* operators.swift in Sources */,
 				D2947E7925BD25E900E60142 /* cos_x__TabApp.swift in Sources */,
 				D2947ECB25BD29EC00E60142 /* PlotDataClass.swift in Sources */,
+				2C36D43527AC8ABF0090028B /* Calculator.swift in Sources */,
 				D2947EBB25BD29EC00E60142 /* CorePlot.swift in Sources */,
 				D2947EB725BD29EC00E60142 /* CalculatePlotData.swift in Sources */,
 				D2947EBF25BD29EC00E60142 /* ChangingPlotParameters.swift in Sources */,
@@ -424,6 +432,7 @@
 				D2947EB425BD29EC00E60142 /* operators.swift in Sources */,
 				D2947E7A25BD25E900E60142 /* cos_x__TabApp.swift in Sources */,
 				D2947ECC25BD29EC00E60142 /* PlotDataClass.swift in Sources */,
+				2C36D43627AC8ABF0090028B /* Calculator.swift in Sources */,
 				D2947EBC25BD29EC00E60142 /* CorePlot.swift in Sources */,
 				D2947EB825BD29EC00E60142 /* CalculatePlotData.swift in Sources */,
 				D2947EC025BD29EC00E60142 /* ChangingPlotParameters.swift in Sources */,
@@ -440,6 +449,7 @@
 				D2947EB125BD29EC00E60142 /* cos_X_Calculator.swift in Sources */,
 				D2947EB925BD29EC00E60142 /* CalculatePlotData.swift in Sources */,
 				D2947E6C25BD25E900E60142 /* Tests_iOS.swift in Sources */,
+				2C36D43827AC8E1D0090028B /* Calculator.swift in Sources */,
 				D2947EC525BD29EC00E60142 /* TextView.swift in Sources */,
 				D2947EB525BD29EC00E60142 /* operators.swift in Sources */,
 				D2947EDB25BD2AB600E60142 /* ContentView.swift in Sources */,
@@ -457,9 +467,11 @@
 				D2947EB225BD29EC00E60142 /* cos_X_Calculator.swift in Sources */,
 				D2947EBA25BD29EC00E60142 /* CalculatePlotData.swift in Sources */,
 				D2947E7725BD25E900E60142 /* Tests_macOS.swift in Sources */,
+				2C36D43727AC8E1C0090028B /* Calculator.swift in Sources */,
 				D2947EC625BD29EC00E60142 /* TextView.swift in Sources */,
 				D2947EB625BD29EC00E60142 /* operators.swift in Sources */,
 				D2947EE025BD2AB700E60142 /* ContentView.swift in Sources */,
+				2C36D43927AC8E630090028B /* sin_X_Calculator.swift in Sources */,
 				D2947ECE25BD29EC00E60142 /* PlotDataClass.swift in Sources */,
 				D2947EBE25BD29EC00E60142 /* CorePlot.swift in Sources */,
 				D2947EC225BD29EC00E60142 /* ChangingPlotParameters.swift in Sources */,
@@ -622,7 +634,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -750,9 +762,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiIIT.Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "cos(x) Tab (macOS)";
+				TEST_TARGET_NAME = "HW 2 Sin (macOS)";
 			};
 			name = Debug;
 		};
@@ -772,9 +785,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiIIT.Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "cos(x) Tab (macOS)";
+				TEST_TARGET_NAME = "HW 2 Sin (macOS)";
 			};
 			name = Release;
 		};

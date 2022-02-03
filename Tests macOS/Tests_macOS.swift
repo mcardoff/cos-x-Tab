@@ -66,6 +66,29 @@ class Tests_macOS: XCTestCase {
         XCTAssertEqual(cosMinus2Pi, cos(45.0*Double.pi/180.0), accuracy: 5E-15)
         
         
+    }
+    
+    func testSin() throws {
+        
+        let plotDataModel = PlotDataClass(fromLine: true)
+        
+        let sinCalculate = Sin_X_Calculator()
+        
+        sinCalculate.plotDataModel = plotDataModel
+        
+        let sin45 = sinCalculate.calculate_sin_x(x: 45.0*Double.pi/180.0)
+        
+        XCTAssertEqual(sin45, sin(45.0*Double.pi/180.0), accuracy: 5E-15)
+        
+        let sinPlus2Pi = sinCalculate.calculate_sin_x(x: (45.0*Double.pi/180.0)+2.0*Double.pi)
+        
+        XCTAssertEqual(sinPlus2Pi, cos(45.0*Double.pi/180.0), accuracy: 5E-15)
+        
+        let sinMinus2Pi = sinCalculate.calculate_sin_x(x: (45.0*Double.pi/180.0)-2.0*Double.pi)
+        
+        XCTAssertEqual(sinMinus2Pi, cos(45.0*Double.pi/180.0), accuracy: 5E-15)
+        
+        
 }
     
     func testNextTerm() throws {
@@ -122,11 +145,11 @@ class Tests_macOS: XCTestCase {
         
         cosCalculate.plotDataModel = plotDataModel
         
-        let sum = cosCalculate.calculate1DInfiniteSum(function: infiniteSumTestMultiplier, x: 0.5, minimum: 1, maximum: 50, firstTerm: 1.0, isPlotError: false, errorType: cosCalculate.cosErrorCalculator )
+        let sum = cosCalculate.calculate1DInfiniteSum(function: infiniteSumTestMultiplier, x: 0.5, offset: 0.0, minimum: 1, maximum: 50, firstTerm: 1.0, isPlotError: false, errorType: cosCalculate.cosErrorCalculator )
         
         XCTAssertEqual(sum, (2.0), accuracy: 5E-15)
         
-        let sum2 = cosCalculate.calculate1DInfiniteSum(function: infiniteSumTestMultiplier, x: 0.75, minimum: 1, maximum: 200, firstTerm: 1.0, isPlotError: false, errorType: cosCalculate.cosErrorCalculator )
+        let sum2 = cosCalculate.calculate1DInfiniteSum(function: infiniteSumTestMultiplier, x: 0.75, offset: 0.0, minimum: 1, maximum: 200, firstTerm: 1.0, isPlotError: false, errorType: cosCalculate.cosErrorCalculator )
         
         XCTAssertEqual(sum2, (4.0), accuracy: 5E-15)
         
