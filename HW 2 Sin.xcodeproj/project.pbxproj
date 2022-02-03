@@ -76,9 +76,9 @@
 		D2947E5025BD25E900E60142 /* cos_x__TabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cos_x__TabApp.swift; sourceTree = "<group>"; };
 		D2947E5125BD25E900E60142 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2947E5225BD25E900E60142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D2947E5725BD25E900E60142 /* cos(x) Tab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cos(x) Tab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2947E5725BD25E900E60142 /* HW 2 Sin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW 2 Sin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2947E5A25BD25E900E60142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2947E5F25BD25E900E60142 /* cos(x) Tab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cos(x) Tab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2947E5F25BD25E900E60142 /* HW 2 Sin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW 2 Sin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2947E6125BD25E900E60142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2947E6225BD25E900E60142 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D2947E6725BD25E900E60142 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,8 +167,8 @@
 		D2947E5825BD25E900E60142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2947E5725BD25E900E60142 /* cos(x) Tab.app */,
-				D2947E5F25BD25E900E60142 /* cos(x) Tab.app */,
+				D2947E5725BD25E900E60142 /* HW 2 Sin.app */,
+				D2947E5F25BD25E900E60142 /* HW 2 Sin.app */,
 				D2947E6725BD25E900E60142 /* Tests iOS.xctest */,
 				D2947E7225BD25E900E60142 /* Tests macOS.xctest */,
 			);
@@ -228,9 +228,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D2947E5625BD25E900E60142 /* cos(x) Tab (iOS) */ = {
+		D2947E5625BD25E900E60142 /* HW 2 Sin (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2947E8125BD25E900E60142 /* Build configuration list for PBXNativeTarget "cos(x) Tab (iOS)" */;
+			buildConfigurationList = D2947E8125BD25E900E60142 /* Build configuration list for PBXNativeTarget "HW 2 Sin (iOS)" */;
 			buildPhases = (
 				D2947E5325BD25E900E60142 /* Sources */,
 				D2947E5425BD25E900E60142 /* Frameworks */,
@@ -240,17 +240,17 @@
 			);
 			dependencies = (
 			);
-			name = "cos(x) Tab (iOS)";
+			name = "HW 2 Sin (iOS)";
 			packageProductDependencies = (
 				D2947E9225BD26D800E60142 /* CorePlot */,
 			);
 			productName = "cos(x) Tab (iOS)";
-			productReference = D2947E5725BD25E900E60142 /* cos(x) Tab.app */;
+			productReference = D2947E5725BD25E900E60142 /* HW 2 Sin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D2947E5E25BD25E900E60142 /* cos(x) Tab (macOS) */ = {
+		D2947E5E25BD25E900E60142 /* HW 2 Sin (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2947E8425BD25E900E60142 /* Build configuration list for PBXNativeTarget "cos(x) Tab (macOS)" */;
+			buildConfigurationList = D2947E8425BD25E900E60142 /* Build configuration list for PBXNativeTarget "HW 2 Sin (macOS)" */;
 			buildPhases = (
 				D2947E5B25BD25E900E60142 /* Sources */,
 				D2947E5C25BD25E900E60142 /* Frameworks */,
@@ -260,12 +260,12 @@
 			);
 			dependencies = (
 			);
-			name = "cos(x) Tab (macOS)";
+			name = "HW 2 Sin (macOS)";
 			packageProductDependencies = (
 				D2947E9925BD270300E60142 /* CorePlot */,
 			);
 			productName = "cos(x) Tab (macOS)";
-			productReference = D2947E5F25BD25E900E60142 /* cos(x) Tab.app */;
+			productReference = D2947E5F25BD25E900E60142 /* HW 2 Sin.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2947E6625BD25E900E60142 /* Tests iOS */ = {
@@ -317,7 +317,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					D2947E5625BD25E900E60142 = {
 						CreatedOnToolsVersion = 12.3;
@@ -335,7 +335,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D2947E4E25BD25E900E60142 /* Build configuration list for PBXProject "cos(x) Tab" */;
+			buildConfigurationList = D2947E4E25BD25E900E60142 /* Build configuration list for PBXProject "HW 2 Sin" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -351,8 +351,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2947E5625BD25E900E60142 /* cos(x) Tab (iOS) */,
-				D2947E5E25BD25E900E60142 /* cos(x) Tab (macOS) */,
+				D2947E5625BD25E900E60142 /* HW 2 Sin (iOS) */,
+				D2947E5E25BD25E900E60142 /* HW 2 Sin (macOS) */,
 				D2947E6625BD25E900E60142 /* Tests iOS */,
 				D2947E7125BD25E900E60142 /* Tests macOS */,
 			);
@@ -466,12 +466,12 @@
 /* Begin PBXTargetDependency section */
 		D2947E6925BD25E900E60142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2947E5625BD25E900E60142 /* cos(x) Tab (iOS) */;
+			target = D2947E5625BD25E900E60142 /* HW 2 Sin (iOS) */;
 			targetProxy = D2947E6825BD25E900E60142 /* PBXContainerItemProxy */;
 		};
 		D2947E7425BD25E900E60142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D2947E5E25BD25E900E60142 /* cos(x) Tab (macOS) */;
+			target = D2947E5E25BD25E900E60142 /* HW 2 Sin (macOS) */;
 			targetProxy = D2947E7325BD25E900E60142 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -594,7 +594,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -603,7 +603,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiIIT.cos-x--Tab";
-				PRODUCT_NAME = "cos(x) Tab";
+				PRODUCT_NAME = "HW 2 Sin";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,7 +625,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiIIT.cos-x--Tab";
-				PRODUCT_NAME = "cos(x) Tab";
+				PRODUCT_NAME = "HW 2 Sin";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -639,9 +639,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -651,7 +652,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiIIT.cos-x--Tab";
-				PRODUCT_NAME = "cos(x) Tab";
+				PRODUCT_NAME = "HW 2 Sin";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -663,9 +664,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -675,7 +677,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiIIT.cos-x--Tab";
-				PRODUCT_NAME = "cos(x) Tab";
+				PRODUCT_NAME = "HW 2 Sin";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -686,7 +688,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -708,7 +710,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -732,7 +734,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -754,7 +756,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = 37PA3332DC;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -773,7 +775,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D2947E4E25BD25E900E60142 /* Build configuration list for PBXProject "cos(x) Tab" */ = {
+		D2947E4E25BD25E900E60142 /* Build configuration list for PBXProject "HW 2 Sin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2947E7F25BD25E900E60142 /* Debug */,
@@ -782,7 +784,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2947E8125BD25E900E60142 /* Build configuration list for PBXNativeTarget "cos(x) Tab (iOS)" */ = {
+		D2947E8125BD25E900E60142 /* Build configuration list for PBXNativeTarget "HW 2 Sin (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2947E8225BD25E900E60142 /* Debug */,
@@ -791,7 +793,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2947E8425BD25E900E60142 /* Build configuration list for PBXNativeTarget "cos(x) Tab (macOS)" */ = {
+		D2947E8425BD25E900E60142 /* Build configuration list for PBXNativeTarget "HW 2 Sin (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2947E8525BD25E900E60142 /* Debug */,
