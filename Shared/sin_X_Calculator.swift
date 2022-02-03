@@ -1,40 +1,13 @@
 //
-//  cos_X_Calculator.swift
-//  cos(x)
+//  sin_X_Calculator.swift
+//  HW 2 Sin (iOS)
 //
-//  Created by Jeff Terry on 12/29/20.
+//  Created by Michael Cardiff on 2/3/22.
 //
 
 import Foundation
 import SwiftUI
 import CorePlot
-
-//                  oo                  2n
-//                  __            n    x
-//    cos (x)  =   \        ( - 1)   ------
-//                 /__               (2n)!
-//                 n = 0
-
-
-
-//                      oo                   2n
-//                      __             n    x
-//    cos (x) - 1   =   \        ( - 1)   ------
-//                      /__               (2n)!
-//                     n = 1
-
-//                  oo                  2n
-//                  __            n    x
-//    cos (x)  =   \        ( - 1)   ------
-//                 /__               (2n)!
-//                 n = 0
-
-
-//                               2
-//      th                     x                     th
-//    n   term  =    ( - 1)  ---------    *   (n - 1)    term
-//                           2n * (2n-1)
-//
 
 
 typealias nthTermParameterTuple = (n: Int, x: Double)
@@ -42,30 +15,29 @@ typealias nthTermMultiplierHandler = (_ parameters: [nthTermParameterTuple]) -> 
 typealias ErrorHandler = (_ parameters: [ErrorParameterTuple]) -> Double
 typealias ErrorParameterTuple = (n: Int, x: Double, sum: Double)
 
-class Cos_X_Calculator: ObservableObject {
+class Sin_X_Calculator: ObservableObject {
     
     var plotDataModel: PlotDataClass? = nil
     var plotError: Bool = false
     
     
     
-    /// calculate_cos_x
-    /// - Parameter x: values of x in cos(x)
-    /// - Returns: cos(x)
+    /// calculate_sin_x
+    /// - Parameter x: values of x in sin(x)
+    /// - Returns: sin(x)
     /// This function limits the range of x to the first period of -π to π
-    /// It calculates the value of the cosine using a Taylor Series Expansion of cos(x) - 1 and then adds 1
     ///
-    ///                   oo                   2n
-    ///                   __            n    x
-    ///    cos (x)  =    \        ( - 1)   ------
-    ///                  /__               (2n)!
-    ///                  n = 0
+    ///                   oo                   2n-1
+    ///                   __          n-1    x
+    ///    sin (x)  =    \        (-1)     ------
+    ///                  /__               (2n-1)!
+    ///                  n = 1
     ///
-    func calculate_cos_x(x: Double) -> Double{
+    func calculate_sin_x(x: Double) -> Double{
         
-        var cosXminusOne = 0.0
+        var sinXminusOne = 0.0
         var xInRange = x
-        var cosX = 0.0
+        var sinX = 0.0
         
         if (xInRange > Double.pi) {
         
@@ -83,12 +55,12 @@ class Cos_X_Calculator: ObservableObject {
         }
         
         
-        cosXminusOne = calculate_cos_xMinus1(x: xInRange)
+        sinXminusOne = calculate_cos_xMinus1(x: xInRange)
         
-        cosX = cosXminusOne + 1.0
-        print(cosX)
+        sinX = sinXminusOne + 1.0
+        print(sinX)
         
-        return (cosX)
+        return (sinX)
     }
     
     /// calculate_cos_xMinus1
@@ -175,7 +147,7 @@ class Cos_X_Calculator: ObservableObject {
     ///   - firstTerm: First term in the expansion usually the value of the sum at the minimum
     ///   - isPlotError: boolean that describes whether to plot the value of the sum or the error with respect to a known value
     ///   - errorType: function used to calculate the log of the error when the exact value is known
-    /// - Returns: the value of the infite sum 
+    /// - Returns: the value of the infite sum
     func calculate1DInfiniteSum(function: nthTermMultiplierHandler, x: Double, minimum: Int, maximum: Int, firstTerm: Double, isPlotError: Bool, errorType: ErrorHandler ) -> Double {
         
         
@@ -266,23 +238,23 @@ class Cos_X_Calculator: ObservableObject {
 
     }
     
-    /// cosnthTermMultiplier
+    /// sinnthTermMultiplier
     /// - Parameter parameters: Tuple containing the value of x and n
     /// - Returns: nth term multiplier (first term on the right side of the equation below)
     ///
     //                               2
     //      th                     x                     th
     //    n   term  =    ( - 1)  ---------    *   (n - 1)    term
-    //                           2n * (2n-1)
+    //                         (2n-1)*(2n-2)
     //
     ///
-    func cosnthTermMultiplier(parameters: [nthTermParameterTuple])-> Double{
+    func sinnthTermMultiplier(parameters: [nthTermParameterTuple])-> Double{
         
         var nthTermMultiplier = 0.0
         let n = Double(parameters[0].n)
         let x = parameters[0].x
         
-        let denominator = 2.0 * n * (2.0 * n - 1)
+        let denominator = (2.0 * n - 2) * (2.0 * n - 1)
         
         nthTermMultiplier =  -1.0 / (denominator) * (x↑2.0)
         
@@ -290,26 +262,25 @@ class Cos_X_Calculator: ObservableObject {
         
     }
     
-    func cosErrorCalculator(parameters: [ErrorParameterTuple])-> Double{
+    func sinErrorCalculator(parameters: [ErrorParameterTuple])-> Double{
         
         var error = 0.0
         _ = Double(parameters[0].n)
         let x = parameters[0].x
         let sum = parameters[0].sum + 1.0
         
-        let actualcos_x = cos(x)
+        let actualsin_x = sin(x)
         
-        if(actualcos_x != 0.0){
+        if(actualsin_x != 0.0){
             
-            var numerator = sum - actualcos_x
+            var numerator = sum - actualsin_x
             
             if(numerator == 0.0) {numerator = sum.ulp}
             
-            error = (log10(abs((numerator)/actualcos_x)))
+            error = (log10(abs((numerator)/actualsin_x)))
             
             
-        }
-        else {
+        } else {
             error = 0.0
         }
         

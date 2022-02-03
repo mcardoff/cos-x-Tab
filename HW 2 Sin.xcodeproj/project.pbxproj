@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C36D43227AC75F60090028B /* sin_X_Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D43127AC75F60090028B /* sin_X_Calculator.swift */; };
 		D2947E6C25BD25E900E60142 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E6B25BD25E900E60142 /* Tests_iOS.swift */; };
 		D2947E7725BD25E900E60142 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E7625BD25E900E60142 /* Tests_macOS.swift */; };
 		D2947E7925BD25E900E60142 /* cos_x__TabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2947E5025BD25E900E60142 /* cos_x__TabApp.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C36D43127AC75F60090028B /* sin_X_Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sin_X_Calculator.swift; sourceTree = "<group>"; };
 		D2947E5025BD25E900E60142 /* cos_x__TabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cos_x__TabApp.swift; sourceTree = "<group>"; };
 		D2947E5125BD25E900E60142 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2947E5225BD25E900E60142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				D2947EAB25BD29EC00E60142 /* ChangingPlotParameters.swift */,
 				D2947EAA25BD29EC00E60142 /* CorePlot.swift */,
 				D2947EA725BD29EC00E60142 /* cos_X_Calculator.swift */,
+				2C36D43127AC75F60090028B /* sin_X_Calculator.swift */,
 				D2947EA825BD29EC00E60142 /* operators.swift */,
 				D2947EAE25BD29EC00E60142 /* PlotDataClass.swift */,
 				D2947EAC25BD29EC00E60142 /* TextView.swift */,
@@ -406,6 +409,7 @@
 				D2947EB725BD29EC00E60142 /* CalculatePlotData.swift in Sources */,
 				D2947EBF25BD29EC00E60142 /* ChangingPlotParameters.swift in Sources */,
 				D2947EAF25BD29EC00E60142 /* cos_X_Calculator.swift in Sources */,
+				2C36D43227AC75F60090028B /* sin_X_Calculator.swift in Sources */,
 				D2947F0025BD2C8900E60142 /* TextExportDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
